@@ -128,8 +128,6 @@
             </div>
         @endforeach
     </main>
-@endsection
-
 <script>
     function updateStatus(productId, status) {
         const formElement = document.getElementById(`status-form-${productId}`);
@@ -137,3 +135,6 @@
         formElement.submit();
     }
 </script>
+
+@endsection
+
