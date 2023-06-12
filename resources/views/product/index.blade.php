@@ -134,6 +134,8 @@
         formElement.querySelector('input[name="status"]').value = status;
         formElement.submit();
     }
+    console.log();
+    
 </script>
 
 @endsection

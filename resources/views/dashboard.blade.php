@@ -51,23 +51,20 @@
             <div class="card mb-4">
                 <div class="card-body">
                 <table id="datatablesSimple">
-                        <thead>
+                <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Avatar</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Role</th>
+                                <th>Image</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <img src="https://placehold.co/50x50" alt="avatar">
-                                    </td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
@@ -75,6 +72,13 @@
                                         <span class="badge {{ $user->role ? ($user->role->name == 'Admin' ? 'bg-info' : ($user->role->name == 'Staff' ? 'bg-primary' : ($user->role->name == 'User' ? 'bg-success' : 'bg-warning'))) : 'bg-danger' }}">
                                             {{ $user->role ? $user->role->name : 'Tidak Tersedia' }}
                                         </span>
+                                    </td>
+                                    <td>
+                                        @if ($user->image == null)
+                                            <span class="badge bg-primary">No Image</span>
+                                        @else
+                                            <img src="{{ asset('storage/user/' . $user->image) }}" alt="{{ $user->name }}" style="max-width: 50px">
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

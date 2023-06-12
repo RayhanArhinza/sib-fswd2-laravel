@@ -71,16 +71,16 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-    <label for="status" class="form-label">Status</label>
-    <select class="form-select @error('status') is-invalid @enderror" aria-label="Select status" id="status" name="status">
-        <option selected disabled>- Choose -</option>
-        <option value="approve" {{ $product->status == 'approve' ? 'selected' : '' }}>Approve</option>
-        <option value="reject" {{ $product->status == 'reject' ? 'selected' : '' }}>Reject</option>
-    </select>
-    @error('status')
-        <small class="text-danger">{{ $message }}</small>
-    @enderror
-</div>
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select @error('status') is-invalid @enderror" aria-label="Select status" id="status" name="status">
+                                <option selected disabled>- Choose -</option>
+                                <option value="approve" {{ $product->status == 'approve' ? 'selected' : '' }}>Approve</option>
+                                <option value="reject" {{ $product->status == 'reject' ? 'selected' : '' }}>Reject</option>
+                            </select>
+                            @error('status')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
 
                         <div class="mb-3">
                             <label for="description" class="form-label">description</label>

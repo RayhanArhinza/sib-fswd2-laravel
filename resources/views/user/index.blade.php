@@ -13,7 +13,6 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Avatar</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -26,9 +25,6 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <img src="https://placehold.co/50x50" alt="avatar">
-                                    </td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
