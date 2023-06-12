@@ -21,7 +21,7 @@
 
                         <div class="mb-3">
                             <label for="caption" class="form-label">Caption</label>
-                            <input type="text" class="form-control @error('caption') is-invalid @enderror" id="caption" name="caption" value="{{ old('title') }}" required>
+                            <input type="text" class="form-control @error('caption') is-invalid @enderror" id="caption" name="caption" value="{{ old('caption') }}" required>
                             @error('caption')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

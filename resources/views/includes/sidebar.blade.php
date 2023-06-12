@@ -18,7 +18,7 @@
             <div class="sb-sidenav-menu-heading">Management</div>
             @if (Auth::user()->role->name == 'Admin' || Auth::user()->role->name == 'Staff')
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    <div class="sb-nav-link-icon"><i class="bi bi-bag"></i></div>
                     Product
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -33,7 +33,7 @@
 
             @if (Auth::user()->role->name == 'Admin')
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     User
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -48,7 +48,7 @@
 
             @if (Auth::user()->role->name == 'User')
                 <a class="nav-link" href="{{ route('product.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    <div class="sb-nav-link-icon"><i class="bi bi-bag"></i></div>
                     Product
                 </a>
             @endif

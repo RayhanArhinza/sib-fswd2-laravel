@@ -47,7 +47,7 @@
         </div>
         @if (Auth::user()->role->name == 'Admin' || Auth::user()->role->name == 'Staff')
         <div class="container-fluid px-4">
-            <h3>Product</h3>
+            <h3>User</h3>
             <div class="card mb-4">
                 <div class="card-body">
                 <table id="datatablesSimple">
@@ -86,7 +86,7 @@
         @endif
 
         <div class="container-fluid px-4">
-        <h3>User</h3>
+        <h3>Product</h3>
             <div class="row">
                 <div class="col">
                     <div class="card mb-4">

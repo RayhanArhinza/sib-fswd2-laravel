@@ -17,7 +17,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="" style="text-decoration: none;">Product</a>
+                            <a href="{{ route('product.index') }}" style="text-decoration: none;">Product</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             All
@@ -38,10 +38,10 @@
                 <div class="container mt-2">
                     <div class="row d-flex justify-content-between">
                         <div class="col-md-9">
-                            <div class="row gx-4   row-cols-xl-3 ">
-                                @forelse ($products as $product)
+                            <div class="row gx-4 row-cols-xl-3">
+                                @forelse ($products->where('status', 'approve') as $product)
                                     <!-- Product card -->
-                                    <div class="col mb-5">
+                                    <div class="col mb-3">
                                         <div class="card h-100">
                                             <!-- Sale badge -->
                                             @if ($product['sale_price'] != 0)
@@ -161,29 +161,27 @@
                             </div>
                         </div>
                     </div>
-                    <nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    <li class="page-item {{ $products->currentPage() == 1 ? 'disabled' : '' }}">
-      <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    @for ($i = 1; $i <= $products->lastPage(); $i++)
-      <li class="page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
-        <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
-      </li>
-    @endfor
-    <li class="page-item {{ $products->currentPage() == $products->lastPage() ? 'disabled' : '' }}">
-      <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {{ $products->currentPage() == 1 ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        </li>
+                        @for ($i = 1; $i <= $products->lastPage(); $i++)
+                        <li class="page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
+                        </li>
+                        @endfor
+                        <li class="page-item {{ $products->currentPage() == $products->lastPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
             </section>
         </div>
     </main>

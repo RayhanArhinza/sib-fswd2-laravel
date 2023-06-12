@@ -22,6 +22,7 @@ class LandingController extends Controller
         $brands = Brand::all();
     
         // Inisialisasi query builder untuk produk
+        $products = Product::with('category')->paginate(6);
         $productsQuery = Product::with('category');
     
         // Cek apakah ada parameter category pada request
@@ -59,7 +60,7 @@ class LandingController extends Controller
         }
     
         // Ambil data produk yang sudah difilter
-        $products = $productsQuery->get();
+        $products = $productsQuery->paginate(6);
     
         return view('landing', compact('products', 'categories', 'sliders', 'brands'));
     }
